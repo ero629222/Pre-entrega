@@ -33,24 +33,33 @@ public class Main {
     }
 
     public static void crearArticulo() {
-        System.out.print("► Ingrese el nombre del artículo: ");
+        System.out.print("► Ingrese el nombre del artículo: ");//solo usamos los iconitos si tenemos UTF-8
         String nombre = sc.nextLine();
 
-        System.out.print("► Ingrese la descripción del artículo: ");
+                if (nombre.isEmpty()) {
+            System.out.println("✗ El nombre del artículo no puede estar vacío. \nVuelve al menú");
+            return;
+                }
+        System.out.print("► Ingrese la descripción del artículo: ");//solo usamos los iconitos si tenemos UTF-8
         String descripcion = sc.nextLine();
 
-        System.out.print("► Ingrese el precio del artículo (usar punto para decimales): ");
+           if (descripcion.isEmpty()) {
+            System.out.println("✗ La descripción del artículo no puede estar vacía.\nVuelve al menú");
+            return;
+        }
+
+        System.out.print("► Ingrese el precio del artículo (usar punto para decimales): ");//solo usamos los iconitos si tenemos UTF-8
         double precio = sc.nextDouble();
         sc.nextLine(); // limpiar buffer
 
         Articulo nuevo = new Articulo(nombre, descripcion, precio);
         lista.add(nuevo);
-        System.out.println("✓ Artículo agregado con éxito.");
+        System.out.println("✓ Artículo agregado con éxito.");//solo usamos los iconitos si tenemos UTF-8
     }
 
     public static void listarArticulos() {
         if (lista.isEmpty()) {
-            System.out.println("✗ No hay artículos cargados.");
+            System.out.println("✗ No hay artículos cargados.");//solo usamos los iconitos si tenemos UTF-8
         } else {
             System.out.println("\n*** Lista de Artículos ***");
             for (Articulo articulo : lista) {
@@ -60,7 +69,7 @@ public class Main {
     }
 
     public static void modificarArticulo() {
-        System.out.print("► Ingrese el ID del artículo a modificar: ");
+        System.out.print("► Ingrese el ID del artículo a modificar: ");//solo usamos los iconitos si tenemos UTF-8
         int id = sc.nextInt();
         sc.nextLine(); // limpiar buffer
 
@@ -69,31 +78,31 @@ public class Main {
                 System.out.print("► Nuevo nombre: ");
                 a.nombre = sc.nextLine();
 
-                System.out.print("► Nueva descripción: ");
+                System.out.print("► Nueva descripción: ");//solo usamos los iconitos si tenemos UTF-8
                 a.descripcion = sc.nextLine();
 
-                System.out.print("► Nuevo precio: ");
+                System.out.print("► Nuevo precio: ");//solo usamos los iconitos si tenemos UTF-8
                 a.precio = sc.nextDouble();
                 sc.nextLine(); // limpiar buffer
 
-                System.out.println("✓ Artículo actualizado correctamente.");
+                System.out.println("✓ Artículo actualizado correctamente.");//solo usamos los iconitos si tenemos UTF-8
                 return;
             }
         }
-        System.out.println("✗ Artículo no encontrado.");
+        System.out.println("✗ Artículo no encontrado.\nvolvemos al inicio");//solo usamos los iconitos si tenemos UTF-8
     }
 
     public static void eliminarArticulo() {
-        System.out.print("► Ingrese el ID del artículo a eliminar: ");
+        System.out.print("► Ingrese el ID del artículo a eliminar: ");//solo usamos los iconitos si tenemos UTF-8
         int id = sc.nextInt();
         sc.nextLine(); // limpiar buffer
 
         boolean eliminado = lista.removeIf(a -> a.id == id);
 
         if (eliminado) {
-            System.out.println("✓ Artículo eliminado.");
+            System.out.println("✓ Artículo eliminado.");//solo usamos los iconitos si tenemos UTF-8
         } else {
-            System.out.println("✗ Artículo no encontrado.");
+            System.out.println("✗ Artículo no encontrado.");//solo usamos los iconitos si tenemos UTF-8
         }
     }
 }
